@@ -1,0 +1,101 @@
+README
+Robert Mushkot
+rmushkot
+1543374
+pa5
+
+Files contained:
+List.c - Implementation file for the List ADT.
+List.h - Header file for the List ADT.
+Graph.c - Implementation file for the Graph ADT.
+Graph.h - Header file for the Graph ADT.
+GraphTest.c - Client used for testing the Graph ADT.
+FindComponents.c - Implements the Graph ADT and uses Depth First Search to find the strongly connected components of a graph..
+Makefile - Creates an executable file called FindComponents. 
+README - This file describing the contents and purpose of the program.
+
+Depth First Search and strongly connected components of a digraph.
+
+This project implements a Graph ADT that represents a graph as an array of Lists. Each vertex will be associated
+with an integer label in the range 1 to n, where n is the number of vertices in the graph. This program will
+use this Graph ADT to find the strongly connected components in the given Graph.. 
+
+The client program is called FindComponents and takes two command line arguemnts and is called using
+
+FindComponents input_file output_file
+
+FILE FORMAT
+
+The first line will begin with a single integer n
+giving the number of vertices in the graph. Each subsequent line will represent an edge by a pair of distinct
+numbers in the range 1 to n, separated by a space. These numbers are the end vertices of the corresponding
+edge. The input file defines the graph, and will be terminated by a dummy line containing
+“0 0”. After these lines are read the program will print the adjacency list representation of the graph to
+the output file. For instance, the lines below define a graph, and cause the above adjacency
+list representation to be printed.
+
+8
+1 2
+2 3 
+2 5
+2 6
+3 4
+3 7
+4 3
+4 8
+5 1
+5 6
+6 7
+7 6
+7 8
+8 8
+
+1: 2
+2: 3 5 6
+3: 4 7
+4: 3 8
+5: 1 6
+6: 7
+7: 6 8
+8: 8
+
+Next the strongly connected component of the Graph will be printed. These components are found using the DFS algorithm.
+
+An example file input output of this program would be:
+
+Input:
+8
+1 2
+2 3
+2 5
+2 6
+3 4
+3 7
+4 3
+4 8
+5 1
+5 6
+6 7
+7 6
+7 8
+8 8
+0 0
+
+Output:
+Adjacency list representation of G:
+1: 2
+2: 3 5 6
+3: 4 7
+4: 3 8
+5: 1 6
+6: 7
+7: 6 8
+8: 8
+
+G contains 4 strongly connected components:
+Component 1: 1 5 2
+Component 2: 3 4
+Component 3: 7 6
+Component 4: 8
+
+
